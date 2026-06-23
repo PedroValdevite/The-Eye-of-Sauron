@@ -260,8 +260,6 @@ Se você quiser salvar não apenas as regras, mas também o estado atual dos **c
 
 A partir daqui, será dado inicio ao processo de configuração do firewall do ambiente. 
 
-Arquivo que irá descrever esse processo: [[Infraestrutura SOC/Firewall]]
-
 ## **Técnicas Avançadas e Hardening**
 
 Em breve...

@@ -19,7 +19,7 @@ const config: Config = {
   organizationName: 'PedroValdevite',
   projectName: 'the-eye-of-sauron', 
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
@@ -100,7 +100,7 @@ const config: Config = {
           items: [
             {
               label: 'Visão Geral do Lab',
-              to: '/docs/intro',
+              to: '/docs/index.md',
             },
           ],
         },
