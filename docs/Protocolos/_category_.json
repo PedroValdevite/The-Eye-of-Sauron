@@ -1,0 +1,8 @@
+{
+  "label": "Protocolos",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Base de conhecimento dedicada aos protocolos de rede encontrados durante a construção e operação do laboratório. Cada documento explora o funcionamento, estrutura, finalidade e aplicação prática de protocolos utilizados na comunicação entre sistemas, serviços e dispositivos da infraestrutura."
+  }
+}

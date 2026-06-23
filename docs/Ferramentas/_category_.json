@@ -1,0 +1,8 @@
+{
+  "label": "Ferramentas",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentação das ferramentas que compõem o ecossistema do laboratório. Esta seção reúne guias de instalação, configuração, arquitetura, casos de uso e experiências práticas com as tecnologias utilizadas para infraestrutura, administração de sistemas, monitoramento e segurança."
+  }
+}

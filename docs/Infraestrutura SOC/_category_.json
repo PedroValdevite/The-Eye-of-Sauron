@@ -1,0 +1,8 @@
+{
+  "label": "Infraestrutura SOC",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentação da implementação e integração da infraestrutura de monitoramento e segurança do laboratório. Esta seção aborda a instalação, configuração e conexão entre as diferentes ferramentas do ecossistema SOC, detalhando o fluxo de dados, a coleta de telemetria e a construção de uma plataforma centralizada de detecção e análise de eventos."
+  }
+}

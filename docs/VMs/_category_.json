@@ -1,0 +1,8 @@
+{
+  "label": "Nome da Categoria (Ex: Infraestrutura de Redes)",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Visão geral sobre esta seção do laboratório."
+  }
+}
