@@ -14,10 +14,10 @@ const config: Config = {
 
   // Ajuste para o seu cenário de deploy (Exemplo com GitHub Pages)
   url: 'https://PedroValdevite.github.io',
-  baseUrl: '/the-eye-of-sauron/', 
+  baseUrl: '/The-Eye-of-Sauron/', 
 
   organizationName: 'PedroValdevite',
-  projectName: 'the-eye-of-sauron', 
+  projectName: 'The-Eye-of-Sauron', 
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
