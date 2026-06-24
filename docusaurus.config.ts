@@ -73,30 +73,30 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'The Eye of Sauron',
-      logo: {
-        alt: 'TEOS Logo',
-        src: 'img/eyesauron.png',
+    title: 'The Eye of Sauron',
+    logo: {
+      alt: 'TEOS Logo',
+      src: 'img/eyesauron.png',
+    },
+    items: [
+      {
+        type: 'docSidebar',
+        sidebarId: 'tutorialSidebar',
+        position: 'left',
+        label: 'Laboratório',
       },
       {
-	to: '/blog'
-	label: 'Autor'
-	position: 'left'
-      }
-      items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar', // Você pode renomear este ID em sidebars.ts depois para 'labSidebar'
-          position: 'left',
-          label: 'Laboratório',
-        },
-              {
-          href: 'https://github.com/PedroValdevite/The-Eye-of-Sauron',
-          label: 'GitHub',
-          position: 'right',
-        },
-      ],
-    },
+        to: '/blog',
+        label: 'Autor',
+        position: 'left',
+      },
+      {
+        href: 'https://github.com/PedroValdevite/The-Eye-of-Sauron',
+        label: 'GitHub',
+        position: 'right',
+      },
+    ],
+  },
     footer: {
       style: 'dark',
       links: [
