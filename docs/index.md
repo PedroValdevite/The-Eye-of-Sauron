@@ -1,6 +1,6 @@
 ---
 id: intro 
-title: Visão Geral do Laboratório 
+title: Visão Geral 
 slug: / 
 sidebar_position: 1
 ---

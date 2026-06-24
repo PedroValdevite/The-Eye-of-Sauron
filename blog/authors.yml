@@ -1,25 +1,10 @@
 yangshun:
-  name: Yangshun Tay
-  title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
-  url: https://linkedin.com/in/yangshun
-  image_url: https://github.com/yangshun.png
+  name: Pedro Valdevite 
+  title: Analista de Segurança da Informação Jr, Estudante de Engenharia da Computação
+  url: https://github.com/PedroValdevite
+  image_url: https://media.licdn.com/dms/image/v2/D4D03AQEjZdl8p0Cd9w/profile-displayphoto-shrink_800_800/B4DZRfvHc4HIAg-/0/1736772975362?e=1784160000&v=beta&t=49YH-rGsJfPaxJrXAPaHDeV0JTMjzAFV9BkoqRoXlAs
   page: true
   socials:
-    x: yangshunz
-    linkedin: yangshun
-    github: yangshun
-    newsletter: https://www.greatfrontend.com
+    linkedin: https://www.linkedin.com/in/pedro-valdevite/
+    github: https://github.com/PedroValdevite/
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
-  socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com

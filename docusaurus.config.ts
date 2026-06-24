@@ -78,6 +78,11 @@ const config: Config = {
         alt: 'TEOS Logo',
         src: 'img/eyesauron.png',
       },
+      {
+	to: '/blog'
+	label: 'Autor'
+	position: 'left'
+      }
       items: [
         {
           type: 'docSidebar',
@@ -86,7 +91,7 @@ const config: Config = {
           label: 'Laboratório',
         },
               {
-          href: 'https://github.com/seu-usuario/the-eye-of-sauron',
+          href: 'https://github.com/PedroValdevite/The-Eye-of-Sauron',
           label: 'GitHub',
           position: 'right',
         },
@@ -100,7 +105,7 @@ const config: Config = {
           items: [
             {
               label: 'Visão Geral do Lab',
-              to: '/docs/index.md',
+              to: '/docs',
             },
           ],
         },
