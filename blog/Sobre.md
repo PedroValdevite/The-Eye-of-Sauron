@@ -5,8 +5,6 @@ authors: [pedrovaldevite]
 tags: [perfil, portfólio, cybersec, pessoal]
 ---
 
-<img src="https://github.com/PedroValdevite.png" alt="Pedro Valdevite" width="150" style={{borderRadius: '50%', float: 'left', marginRight: '20px', marginBottom: '20px'}} />
-
 Bem-vindo ao espaço de documentação e desenvolvimento do meu laboratório de defesa. Este espaço foi criado para registar a evolução do ecossistema **The Eye of Sauron**, centralizando conhecimento e aplicando conceitos práticos de segurança em profundidade.
 
 Aqui você encontrará a intersecção entre a Engenharia de Computação, a rotina de um Security Operations Center (SOC) e os testes de infraestrutura que realizo no meu dia a dia.

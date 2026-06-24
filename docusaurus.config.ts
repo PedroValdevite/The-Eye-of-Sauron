@@ -86,7 +86,7 @@ const config: Config = {
         label: 'Laboratório',
       },
       {
-        to: '/blog',
+        to: '/blog/',
         label: 'Autor',
         position: 'left',
       },
@@ -105,7 +105,7 @@ const config: Config = {
           items: [
             {
               label: 'Visão Geral do Lab',
-              to: '/docs',
+              to: '/docs/index.md',
             },
           ],
         },
