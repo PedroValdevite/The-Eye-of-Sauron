@@ -28,7 +28,6 @@ Foram configuradas três interfaces virtuais para segmentação:
 - Interfaces Host-Only (x2): Utilizadas para isolar o tráfego da rede interna (LAN) e o tráfego de gerenciamento/monitoramento.
     
 
-teste
 ### Ativos e Componentes
 
 A arquitetura inicial está composta pelos seguintes elementos:
