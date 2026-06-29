@@ -9,7 +9,7 @@ sidebar_position: 1
  O primeiro passo será o levantamento de dados e construção da arquitetura esperada para o ambiente. 
  
  --- 
-# 1. Topologia da rede
+## 1. Topologia da rede
 
 A construção da topologia de rede traz mais eficiência e agilidade para o restante do processo de configuração.
 
@@ -27,9 +27,9 @@ O ambiente, a principio, terá 2 redes isoladas entre si:
   Em um ambiente coorporativo real, a saída da interface ens34 iria para WAN, por vezes por mais de um link.
    
 ---
-# 2. Logística dos pacotes
+## 2. Logística dos pacotes
   
-### 1. Comunicação LAN para WAN (Acesso à Internet)
+### 2.1. Comunicação LAN para WAN (Acesso à Internet)
 
 Quando uma workstation ($192.168.0.33/27$) tenta acessar um site na internet:
 
@@ -37,7 +37,7 @@ Quando uma workstation ($192.168.0.33/27$) tenta acessar um site na internet:
     
 2. **Encaminhamento (Forward):** O IPTABLES recebe o pacote na `ens37` e o direciona para a interface de saída `ens34`.
     
-3. **NAT (Masquerade):** Aqui ira ocorrer o **SNAT** (Source NAT). O endereço de origem privado da workstation é substituído pelo endereço da `ens34` ($192.168.114.4$).
+3. **NAT (Masquerade):** Aqui ira ocorrer o **SNAT** (Source NAT). O endereço de origem privado da workstation é substituído pelo endereço da `ens38` ($192.168.114.4$).
     
 4. **Saída:** O pacote sai para o PC Host, que realiza um segundo NAT (como indicado no desenho) antes de chegar ao roteador e, finalmente, à WAN.
     
@@ -45,8 +45,7 @@ Quando uma workstation ($192.168.0.33/27$) tenta acessar um site na internet:
    
    
    
-   ### 2. Comunicação entre Redes (Inter-VLAN/Inter-Rede)
-
+### 2.2 Comunicação entre Redes (Inter-VLAN/Inter-Rede)
 Se um administrador na "Rede de Workstations" tentar acessar um banco de dados na "Rede de Servidores":
 
 1. **Roteamento Interno:** O pacote chega na `ens37`. O Debian consulta sua tabela de roteamento e percebe que o destino está na rede conectada à `ens33`.
@@ -54,13 +53,11 @@ Se um administrador na "Rede de Workstations" tentar acessar um banco de dados n
 2. **Filtragem (Firewall):** O tráfego passa pela chain `FORWARD` do IPTABLES.
         
 3. **Sem NAT:** Diferente da WAN, aqui **não costuma haver NAT**. O servidor vê o IP real da workstation, o que é ideal para auditoria de logs.
-   
-   
-# Configuração da VM
 
-Recursos:
+## 3. Configuração de instalação do sistema operacional
 
-CPU: 1 processador e 2 cores
+>[!INFO] Recursos
+>CPU: 1 processador e 2 cores
 RAM: 2048MB
 I/Os: LSI Logic
 Disk type: SCSI
@@ -70,9 +67,7 @@ Sistema operacional: Debian 13
 
 > A fim de tornar a VM eficaz em recursos e segurança, será feita a instalação mínima do sistema.
 
-# Configuração de instalação do sistema operacional
-
-> O documento a seguir tem como objetivo ser um passo a passo de instalação. Será registrado apenas as partes mais relevantes do processo.
+> A sessão a seguir não tem como objetivo ser um passo a passo de instalação, mas uma referência. Será registrado apenas as partes mais relevantes do processo.
 
 
 1. A principio a configuração se iniciou com opções relacionadas a linguagem e identificação do hardware. Após, houve a criação do usuário root e usuário com menos privilégios.
@@ -101,7 +96,7 @@ Foi selecionado o método manual.
 Foi selecionado apenas servidor SSH (para gerenciamento da VM). Após será instalado os utilitários necessários manualmente.
 
 
-# Configuração inicial da VM
+## 4. Configuração inicial da VM
 
 > Após subir o sistema operacional, é necessário fazer configurações iniciais no ambiente, pois não há utilitários de interação ao kernel necessários para criar as regras de comunicação. 
 
@@ -140,5 +135,42 @@ Notei que não há um arquivo que gerencia a interface ens36, que está ativa. S
 
 Portando, vamos criar arquivos de configuração para que o deamon gerencie as interfaces.
 
-Criação do arquivo 10-ens-main.network.
+Criação do arquivo 10-ens-main.network:
+
+Seguindo a documentação [[systemd-networkd]], vamos manipular um arquivo .network.
+
+O objetivo aqui é fazer uma configuração básica apenas para que a interface receba o mesmo ip sempre que inicializar, permitir que tenha IPv4 forwarding, definir o DNS e desativar o DHCP.
+
+![[img/imagem11.png]]
+
+Assim ficou a configuração. Explicação passo a passo:
+
+`Match`
+Configurações que farão com que o networkd aplique as configurações a interface apenas se corresponder com os valores do atributos dessa estrutura
+
+`Network`
+Define as configurações gerais da interface, como o encaminhamento de pacotes, DNS e DHCP. 
+
+`Address`
+Definição do IP estático.
+
+>Para fazer o networkd ler esse arquivo, é necessário executar o comando `networkctl reload`.
+
+Agora, quando verificamos a interface com o comando networkctl status ens36, temos:
+
+![[img/imagem12.png]]
+
+Note que o valor de Network File assumiu o arquivo que acabamos de criar. Isso significa que a estrutura Match casou com a interface, e aplicou as configurações das outras estruturas.
+
+Com base nessa lógica, as interfaces LANs foram configuradas da seguinte forma:
+
+Todas as interfaces sendo gerenciadas
+![[img/imagem13.png]]
+   
+interface ens38:
+![[img/imagem14.png]]
+Interface ens37:
+![[img/imagem15.png]]
+
+> Aqui finalizamos as ultimas configurações do ambiente, e daremos inicio a configuração do IPtables.
 

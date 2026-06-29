@@ -63,7 +63,7 @@ Configuram endereços IP, rotas, DNS e DHCP para interfaces existentes.
 - `Name=`: Nome da interface (aceita curingas, ex: `enp*`).
     
 - `Type=`: Tipo de link (ex: `ethernet`, `vlan`, `bridge`).
-rrrrrrrrrrrrr    
+    
 
 ### `[Network]`
 
