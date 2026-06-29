@@ -1,7 +1,7 @@
 ---
 id: firewall
-title: IP tables
-sidebar_label: IP tables
+title: Firewall
+sidebar_label: Firewall
 sidebar_position: 1
 ---
 > Aqui irei documentar todo processo de configuração do iptables do laboratório.
