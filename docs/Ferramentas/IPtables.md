@@ -1,11 +1,9 @@
 ---
-id: IP tables
+id: IPtables
 title: IP tables
 sidebar_label: IP tables
 sidebar_position: 2
 ---
-
-
 >O iptables é uma ferramenta de linha de comando baseada no kernel Linux que funciona como um firewall e filtro de pacotes de rede. Ele permite ao administrador definir regras para permitir, bloquear ou redirecionar tráfego (IPv4), agindo como um "segurança" que analisa pacotes de entrada, saída e encaminhamento.
 
 Arquitetura:

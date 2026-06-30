@@ -108,9 +108,9 @@ Para validar se todas estão sendo detectadas pela VM, foi executado o comando n
  > Para mais informações sobre esse comando, acesse: [[ip]]
 
 
-Essa será a primeira interação com a configuração de rede do ambiente. O iptables não está instalado ainda, e mesmo que tivesse, ele não é capaz de interagir com as interfaces de rede. Na distribuição debian, e seus derivados, geralmente há 2 gerenciadores de configurações de rede, o `systemd-networkd` e o `NetworkManager`. No nosso ambiente, vamos usar o deamon [[systemd-networkd]].
+Essa será a primeira interação com a configuração de rede do ambiente. O iptables não está instalado ainda, e mesmo que tivesse, ele não é capaz de interagir com as interfaces de rede. Na distribuição debian, e seus derivados, geralmente há 2 gerenciadores de configurações de rede, o `systemd-networkd` e o `NetworkManager`. No nosso ambiente, vamos usar o deamon [networkd](/Utilitários/Linux/systemd-networkd).
 
-> Para mais informações do **NetworkManager**, acesse [[NetworkManager]].
+> Para mais informações do **NetworkManager**, acesse [NetworkManager](/Utilitários/Linux/NetworkManager).
 
 Para validar as interfaces detectadas pelo deamon, vamos usar o seguinte comando:
 
@@ -137,11 +137,12 @@ Portando, vamos criar arquivos de configuração para que o deamon gerencie as i
 
 Criação do arquivo 10-ens-main.network:
 
-Seguindo a documentação [[systemd-networkd]], vamos manipular um arquivo .network.
+Seguindo a documentação [networkd](/Utilitários/Linux/systemd-networkd), vamos manipular um arquivo .network.
 
 O objetivo aqui é fazer uma configuração básica apenas para que a interface receba o mesmo ip sempre que inicializar, permitir que tenha IPv4 forwarding, definir o DNS e desativar o DHCP.
 
-![[img/imagem11.png]]
+![](/img/imagem11.png)
+*Correção: Foi adicionado na estrutura `Network` a configuração de gateway, da seguinte forma: Gateway=192.168.114.2. 
 
 Assim ficou a configuração. Explicação passo a passo:
 
@@ -158,19 +159,31 @@ Definição do IP estático.
 
 Agora, quando verificamos a interface com o comando networkctl status ens36, temos:
 
-![[img/imagem12.png]]
+![](/img/imagem12.png)
 
 Note que o valor de Network File assumiu o arquivo que acabamos de criar. Isso significa que a estrutura Match casou com a interface, e aplicou as configurações das outras estruturas.
 
 Com base nessa lógica, as interfaces LANs foram configuradas da seguinte forma:
 
-Todas as interfaces sendo gerenciadas
-![[img/imagem13.png]]
+Todas as interfaces sendo gerenciadas:
+
+![](/img/imagem13.png)
    
 interface ens38:
-![[img/imagem14.png]]
+
+![](/img/imagem14.png)
 Interface ens37:
-![[img/imagem15.png]]
+
+![](/img/imagem15.png)
 
 > Aqui finalizamos as ultimas configurações do ambiente, e daremos inicio a configuração do IPtables.
 
+## IPtables
+
+> Para essa sessão iremos seguir a documentação em [IPtables](/Ferramentas/IPtables).
+
+Primeiro, vamos instalar a ferramenta com os seguintes comandos:
+
+```
+sudo apt install iptables
+```
